@@ -52,6 +52,7 @@ function App() {
     const data = await res.json();
     console.log(data);
     setTodos((todos) => todos.filter((todo) => todo._id !== data._id));
+    window.location.reload();
   };
 
   return (
