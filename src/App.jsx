@@ -6,7 +6,7 @@ const API_BASE = "https://todoapi-production-db90.up.railway.app";
 function App() {
   const [todos, setTodos] = useState([]);
 
-  const [popupActive, setPopupActive] = useState(false);
+  // const [popupActive, setPopupActive] = useState(false);
 
   const [newTodo, setNewTodo] = useState("");
 
@@ -40,7 +40,7 @@ function App() {
     }).then((res) => res.json());
 
     setTodos([...todos, data]);
-    setPopupActive(false);
+    // setPopupActive(false);
     setNewTodo("");
   };
 
@@ -57,9 +57,27 @@ function App() {
 
   return (
     <>
-      <div className="App">
-        <h1>welcome, Sadanand</h1>
-        <h4>Your Task</h4>
+      <div className="App ">
+        <h1>Welcome, Sadanand</h1>
+        <div className="flex items-center border-b border-teal-500 py-2">
+          <input
+            className="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
+            type="text"
+            placeholder="Write Todo Here"
+            aria-label="Add Todo"
+            onChange={(e) => setNewTodo(e.target.value)}
+            value={newTodo}
+            required
+          />
+          <button
+            className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+            type="button"
+            onClick={addTodo}
+          >
+            Create Todo
+          </button>
+        </div>
+        <h4 className="mt-6">Your Task</h4>
         <div className="todos">
           {todos.length > 0 ? (
             todos.map((todo) => (
@@ -68,7 +86,7 @@ function App() {
                 key={todo._id}
               >
                 <div
-                  className="checkbox"
+                  className="checkbox "
                   onClick={() => completeTodo(todo._id)}
                 ></div>
 
@@ -90,7 +108,7 @@ function App() {
           )}
         </div>
 
-        <div className="addPopup" onClick={() => setPopupActive(true)}>
+        {/* <div className="addPopup" onClick={() => setPopupActive(true)}>
           +
         </div>
         {popupActive ? (
@@ -114,7 +132,7 @@ function App() {
           </div>
         ) : (
           ""
-        )}
+        )} */}
       </div>
     </>
   );
