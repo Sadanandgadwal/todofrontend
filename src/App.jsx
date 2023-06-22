@@ -47,7 +47,8 @@ function App() {
   const deleteTodo = async (id) => {
     const res = await fetch(API_BASE + "/todo/" + id, {
       method: "DELETE",
-    });
+    }).then();
+    window.location.reload();
 
     const data = await res.json();
     console.log(data);
@@ -104,7 +105,7 @@ function App() {
               </div>
             ))
           ) : (
-            <p>You currently have no tasks</p>
+            <p className="text-white mt-6">You currently have no tasks</p>
           )}
         </div>
 
