@@ -2,7 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 // import axios from "axios";
 
-const API_BASE = "https://todoapi-production-db90.up.railway.app";
+const API_BASE = "https://todoapi-ohuw.onrender.com";
 function App() {
   const [todos, setTodos] = useState([]);
 
